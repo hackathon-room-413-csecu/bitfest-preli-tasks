@@ -1,0 +1,21 @@
+spring:
+  sql:
+    init:
+      mode: always
+  jpa:
+    defer-datasource-initialization: true
+  devtools:
+    restart:
+      enabled: false
+  config:
+    import: 'optional:classpath:secrets.yaml'
+  application:
+    name: challenge_2
+  datasource:
+    url: ${secrets.datasource.url}
+    username: ${secrets.datasource.username}
+    password: ${secrets.datasource.password}
+    hikari:
+      connection-timeout: 20000
+server:
+  port: 8082
