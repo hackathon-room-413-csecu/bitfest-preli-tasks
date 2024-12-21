@@ -28,3 +28,27 @@ Taste: Sweet
 Cuisine: Western
 Preparation Time: 90 minutes
 Reviews: 4.7
+
+---
+Name: Chocolate Chip Cookies
+Ingredients: flour, butter, sugar, chocolate chips, eggs, vanilla extract, baking soda, salt
+Taste: Sweet, Chocolatey
+Cuisine: Western
+Preparation Time: 30 minutes
+Reviews: 4.8
+
+---
+Name: Spaghetti Carbonara
+Ingredients: spaghetti, eggs, pancetta, Parmesan cheese, garlic, black pepper, olive oil
+Taste: Savory, Creamy
+Cuisine: Italian
+Preparation Time: 20 minutes
+Reviews: 4.6
+
+---
+Name: Chicken Tikka Masala
+Ingredients: chicken, yogurt, tomato, onion, garlic, ginger, spices (cumin, coriander, turmeric, garam masala), cream
+Taste: Spicy, Creamy
+Cuisine: Indian
+Preparation Time: 45 minutes
+Reviews: 4.7

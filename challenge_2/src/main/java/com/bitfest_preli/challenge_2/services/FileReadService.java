@@ -75,4 +75,18 @@ public class FileReadService {
 
         return recipes;
     }
+
+    public List<Recipe> readAllFilesInDirectory(String directoryPath, List<String> fileNames) {
+        List<Recipe> allRecipes = new ArrayList<>();
+
+        for (String fileName : fileNames) {
+            String filePath = directoryPath + "/" + fileName;
+            logger.info("Reading file: " + filePath);
+            List<Recipe> recipesFromFile = readFile(filePath);
+            allRecipes.addAll(recipesFromFile);
+        }
+
+        return allRecipes;
+    }
+
 }

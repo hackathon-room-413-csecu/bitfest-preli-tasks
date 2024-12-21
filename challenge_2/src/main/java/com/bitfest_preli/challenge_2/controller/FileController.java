@@ -37,4 +37,28 @@ public class FileController {
         fileWriteService.writeRecipeToFile(recipe);
         return new ResponseEntity<String>("Recipe added successfully", HttpStatus.CREATED);
     }
+
+    @PostMapping("/add-recipe-from-directory")
+    public ResponseEntity<String> addRecipesFromDirectory(@RequestBody List<String> fileNames) {
+        String directoryPath = "recipes/text_files";
+
+
+        List<Recipe> recipes = fileReadService.readAllFilesInDirectory(directoryPath, fileNames);
+
+        if (recipes.isEmpty()) {
+            return new ResponseEntity<>(
+                    "No recipes found in the specified files.",
+                    HttpStatus.NO_CONTENT
+            );
+        }
+
+        for (Recipe recipe : recipes) {
+            fileWriteService.writeRecipeToFile(recipe);
+        }
+
+        return new ResponseEntity<>(
+                "Recipes successfully added to my_fav_recipes.txt",
+                HttpStatus.CREATED
+        );
+    }
 }
