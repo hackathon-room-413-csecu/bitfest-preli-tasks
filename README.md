@@ -131,6 +131,8 @@ This endpoint retrieves a list of recipes from a file and returns it in JSON for
     }
 ]
 
+```
+
 ### 9. Route: `/add-recipe-text`
 **Method**: `POST`
 
