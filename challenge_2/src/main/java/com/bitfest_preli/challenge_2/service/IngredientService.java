@@ -5,6 +5,7 @@ import com.bitfest_preli.challenge_2.dto.IngredientRequestDTO;
 import com.bitfest_preli.challenge_2.dto.IngredientUpdateDTO;
 import com.bitfest_preli.challenge_2.model.Ingredient;
 import com.bitfest_preli.challenge_2.repository.IngredientRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -50,5 +51,16 @@ public class IngredientService {
 
     public List<Ingredient> getAvailableIngredients() {
         return ingredientRepository.findByQuantityGreaterThan(0);
+    }
+
+    @Transactional
+    public void deleteIngredientByName(String name) {
+        // Check if ingredient with the given name exists
+        Optional<Ingredient> ingredient = ingredientRepository.findByName(name);
+        if (ingredient.isPresent()) {
+            ingredientRepository.delete(ingredient.get());
+        } else {
+            throw new RuntimeException("Ingredient not found with name: " + name);
+        }
     }
 }

@@ -68,4 +68,14 @@ public class IngredientsController {
         List<Ingredient> ingredients = ingredientService.getAvailableIngredients();
         return ResponseEntity.ok(ingredients);
     }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<?> deleteIngredientByName(@RequestBody String name) {
+        try {
+            ingredientService.deleteIngredientByName(name);
+            return ResponseEntity.ok("Ingredient deleted successfully.");
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(404).body("Ingredient not found: " + e.getMessage());
+        }
+    }
 }
