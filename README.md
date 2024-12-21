@@ -150,28 +150,6 @@ This endpoint adds a new recipe to the file `my_fav_recipes.txt`. The recipe det
     "reviews": 4.5
 }
 
-
-Here is the API documentation in Markdown format with the routes starting from number 9:
-
-```markdown
-## API Documentation
-
-### 9. Route: `/add-recipe-text`
-**Method**: `POST`
-
-**Description**:  
-This endpoint adds a new recipe to the file `my_fav_recipes.txt`. The recipe details are provided in the request body.
-
-#### Sample Payload:
-```json
-{
-    "name": "Spaghetti Bolognese",
-    "ingredients": ["Spaghetti", "Ground beef", "Tomato sauce", "Garlic", "Onions"],
-    "taste": "Savory and hearty",
-    "cuisine": "Italian",
-    "preparationTime": "30 minutes",
-    "reviews": 4.5
-}
 ```
 
 
