@@ -2,11 +2,13 @@ package com.bitfest_preli.challenge_2.service;
 
 
 import com.bitfest_preli.challenge_2.dto.IngredientRequestDTO;
+import com.bitfest_preli.challenge_2.dto.IngredientUpdateDTO;
 import com.bitfest_preli.challenge_2.model.Ingredient;
 import com.bitfest_preli.challenge_2.repository.IngredientRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class IngredientService {
@@ -27,5 +29,18 @@ public class IngredientService {
         for (IngredientRequestDTO ingredientRequest : ingredientRequests) {
             addIngredient(ingredientRequest); // Reusing the existing method to add individual ingredients
         }
+    }
+
+    public boolean updateIngredient(IngredientUpdateDTO ingredientUpdate) {
+        Optional<Ingredient> existingIngredientOpt = ingredientRepository.findByName(ingredientUpdate.getName());
+
+        if (existingIngredientOpt.isPresent()) {
+            Ingredient existingIngredient = existingIngredientOpt.get();
+            existingIngredient.setQuantity(ingredientUpdate.getQuantity());
+            existingIngredient.setUnit(ingredientUpdate.getUnit());
+            ingredientRepository.save(existingIngredient);
+            return true;
+        }
+        return false; // Ingredient not found
     }
 }
