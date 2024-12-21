@@ -2,6 +2,7 @@ package com.bitfest_preli.challenge_2.controller;
 
 import com.bitfest_preli.challenge_2.dto.IngredientRequestDTO;
 import com.bitfest_preli.challenge_2.dto.IngredientUpdateDTO;
+import com.bitfest_preli.challenge_2.model.Ingredient;
 import com.bitfest_preli.challenge_2.service.IngredientService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -54,5 +55,17 @@ public class IngredientsController {
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Failed to update ingredient: " + e.getMessage());
         }
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<Ingredient>> getAllIngredients() {
+        List<Ingredient> ingredients = ingredientService.getAllIngredients();
+        return ResponseEntity.ok(ingredients);
+    }
+
+    @GetMapping("/available")
+    public ResponseEntity<List<Ingredient>> getAvailableIngredients() {
+        List<Ingredient> ingredients = ingredientService.getAvailableIngredients();
+        return ResponseEntity.ok(ingredients);
     }
 }

@@ -27,6 +27,17 @@ public class Ingredient {
     @Column(name = "last_updated")
     private Timestamp lastModifiedAt;
 
+    public double getQuantity() {
+        return quantity;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
     public void setId(long id) {
         this.id = id;
     }

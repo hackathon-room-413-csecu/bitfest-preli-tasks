@@ -43,4 +43,12 @@ public class IngredientService {
         }
         return false; // Ingredient not found
     }
+
+    public List<Ingredient> getAllIngredients() {
+        return ingredientRepository.findAll();
+    }
+
+    public List<Ingredient> getAvailableIngredients() {
+        return ingredientRepository.findByQuantityGreaterThan(0);
+    }
 }
