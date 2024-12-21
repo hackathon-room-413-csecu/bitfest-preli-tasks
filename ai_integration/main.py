@@ -24,22 +24,26 @@ async def get_recipe_from_image(file: UploadFile = File(...)):
 
         model = genai.GenerativeModel(model_name="models/gemini-1.5-flash-002")
         text = """
-                You are given a recipe image, 
-                describe the image into following fileds only 
-                Example of an image description given below, 
-                Name: Chocolate Chip Cookies
-                Ingredients: flour, butter, sugar, chocolate chips, eggs, vanilla extract, baking soda, salt
-                Taste: Sweet, Chocolatey
-                Cuisine: Western
-                Preparation Time: 30 minutes
-                Reviews: 4.8
-            """
-    
+            You are given a recipe image, 
+            do not generate unnecessary outputs, 
+            omit ``` at the start and end, 
+            omit usage of \" to represent "(")"
+            Return the response in this exact JSON array format:
+                {
+                    "Name": "Recipe name here",
+                    "Ingredients": ["ingredient1", "ingredient2", "ingredient3"],
+                    "Taste": "Taste description here",
+                    "Cuisine": "Cuisine type here",
+                    "Preparation Time": "Preparation time here",
+                    "Reviews": float
+                }
+        """
+        
         response = model.generate_content([text, sample_file])
 
         description = response.candidates[0].content.parts[0].text
 
-        return JSONResponse(content={"description": description})
+        return JSONResponse(description)
 
     except Exception as e:
         return JSONResponse(status_code=500, content={"error": str(e)})

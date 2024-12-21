@@ -103,3 +103,146 @@ Sample Payload:
 ```
 Description: Deletes an ingredient by its name.
 
+
+### Route: 8. `/get-recipes`
+**Method**: `GET`
+
+**Description**:  
+This endpoint retrieves a list of recipes from a file and returns it in JSON format.
+
+#### Sample Response:
+```json
+[
+    {
+        "name": "Spaghetti Bolognese",
+        "ingredients": ["Spaghetti", "Ground beef", "Tomato sauce", "Garlic", "Onions"],
+        "taste": "Savory and hearty",
+        "cuisine": "Italian",
+        "preparationTime": "30 minutes",
+        "reviews": 4.5
+    },
+    {
+        "name": "Chicken Curry",
+        "ingredients": ["Chicken", "Curry powder", "Coconut milk", "Rice", "Garlic", "Onions"],
+        "taste": "Spicy and creamy",
+        "cuisine": "Indian",
+        "preparationTime": "45 minutes",
+        "reviews": 4.7
+    }
+]
+
+### 9. Route: `/add-recipe-text`
+**Method**: `POST`
+
+**Description**:  
+This endpoint adds a new recipe to the file `my_fav_recipes.txt`. The recipe details are provided in the request body.
+
+#### Sample Payload:
+```json
+{
+    "name": "Spaghetti Bolognese",
+    "ingredients": ["Spaghetti", "Ground beef", "Tomato sauce", "Garlic", "Onions"],
+    "taste": "Savory and hearty",
+    "cuisine": "Italian",
+    "preparationTime": "30 minutes",
+    "reviews": 4.5
+}
+
+
+Here is the API documentation in Markdown format with the routes starting from number 9:
+
+```markdown
+## API Documentation
+
+### 9. Route: `/add-recipe-text`
+**Method**: `POST`
+
+**Description**:  
+This endpoint adds a new recipe to the file `my_fav_recipes.txt`. The recipe details are provided in the request body.
+
+#### Sample Payload:
+```json
+{
+    "name": "Spaghetti Bolognese",
+    "ingredients": ["Spaghetti", "Ground beef", "Tomato sauce", "Garlic", "Onions"],
+    "taste": "Savory and hearty",
+    "cuisine": "Italian",
+    "preparationTime": "30 minutes",
+    "reviews": 4.5
+}
+```
+
+
+
+### 10. Route: `/add-recipe-from-directory`
+**Method**: `POST`
+
+**Description**:  
+This endpoint adds recipes from multiple text files located in the specified directory. It processes the list of filenames provided in the request body.
+
+#### Sample Payload:
+```json
+[
+    "recipe1.txt",
+    "recipe2.txt",
+    "recipe3.txt"
+]
+```
+
+#### Sample Response:
+```json
+{
+    "message": "Recipes successfully added to my_fav_recipes.txt"
+}
+```
+
+#### Response Status Codes:
+- **201 Created**: Successfully added the recipes from the directory.
+- **204 No Content**: No recipes found in the specified files.
+
+#### Example Request:
+```bash
+POST http://localhost:8080/add-recipe-from-directory
+```
+
+---
+
+### 11. Route: `/get-recipe-from-image`
+**Method**: `POST`
+
+**Description**:  
+This endpoint processes images to extract recipe information. It processes the list of image filenames provided in the request body and retrieves the recipes.
+
+#### Sample Payload:
+```json
+[
+    "image1.jpg",
+    "image2.jpg",
+    "image3.jpg"
+]
+```
+
+#### Sample Response:
+```json
+{
+    "message": "Recipes successfully added to my_fav_recipes.txt"
+}
+```
+
+#### Response Status Codes:
+- **201 Created**: Successfully added the recipes from the images.
+- **204 No Content**: No recipes found in the specified files.
+
+#### Example Request:
+```bash
+POST http://localhost:8080/get-recipe-from-image
+```
+
+---
+
+### Notes:
+- **For `/add-recipe-text`**: The request body should contain a single recipe object to be added to the file.
+- **For `/add-recipe-from-directory`**: The request body should contain a list of filenames of text files containing recipes.
+- **For `/get-recipe-from-image`**: The request body should contain a list of image filenames to be processed for recipe extraction.
+```
+
