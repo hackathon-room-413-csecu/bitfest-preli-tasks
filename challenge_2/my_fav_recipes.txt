@@ -1,0 +1,30 @@
+Name: Chocolate Cake
+Ingredients: flour, sugar, cocoa powder, eggs, butter
+Taste: Sweet
+Cuisine: Western
+Preparation Time: 60 minutes
+Reviews: 4.8
+
+---
+Name: Pasta Primavera
+Ingredients: pasta, vegetables, olive oil, parmesan
+Taste: Savory
+Cuisine: Italian
+Preparation Time: 25 minutes
+Reviews: 4.6
+
+---
+Name: Mango Ice Cream
+Ingredients: mango, milk, sugar, cream
+Taste: Sweet
+Cuisine: Dessert
+Preparation Time: 15 minutes
+Reviews: 4.9
+
+---
+Name: Cheesecake
+Ingredients: cream cheese, sugar, eggs, crust
+Taste: Sweet
+Cuisine: Western
+Preparation Time: 90 minutes
+Reviews: 4.7
